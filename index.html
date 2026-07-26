@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matte Cyber TTS Studio - Arabe</title>
+    <title>Matte Cyber Edge-TTS Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .glass {
-            background: rgba(15, 23, 42, 0.65);
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
         .glass-input {
-            background: rgba(2, 6, 23, 0.7);
+            background: rgba(2, 6, 23, 0.8);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.06);
         }
@@ -24,67 +24,79 @@
             filter: blur(60px);
             pointer-events: none;
         }
+        .console-box {
+            background: rgba(3, 7, 18, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: monospace;
+            direction: ltr;
+            text-align: left;
+        }
     </style>
+</head>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950 min-h-screen text-slate-100 flex flex-col items-center justify-between p-4 font-sans">
 
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4b6cb7">
-<link rel="apple-touch-icon" href="icon.png"></head>
-<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950 min-h-screen text-slate-100 flex items-center justify-center p-4 font-sans select-none">
-
-    <!-- Conteneur Principal Glassmorphism -->
-    <div class="glass w-full max-w-xl p-8 rounded-3xl relative overflow-hidden">
-        <!-- Éléments lumineux d'arrière-plan (Matte Cyber) -->
+    <!-- Conteneur Principal -->
+    <div class="glass w-full max-w-xl p-6 rounded-3xl relative overflow-hidden my-auto">
         <div class="glow-effect -top-20 -left-20 w-56 h-56 bg-purple-600/15"></div>
         <div class="glow-effect -bottom-20 -right-20 w-56 h-56 bg-indigo-600/15"></div>
 
-        <div class="relative z-10 space-y-6">
-            <header class="text-center space-y-2">
-                <h1 class="text-2xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400">
-                    استوديو تحويل النصوص إلى صوت
+        <div class="relative z-10 space-y-5">
+            <header class="text-center space-y-1">
+                <h1 class="text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-indigo-300 to-cyan-400">
+                    استوديو الذكاء الاصطناعي الصوتي
                 </h1>
-                <p class="text-xs text-slate-400">نظام ذكي يعتمد على التخزين المؤقت (Blob) بجودة عالية</p>
+                <p class="text-xs text-slate-400">أصوات عصبية طبيعية 100% (Edge-TTS Neural)</p>
             </header>
 
             <!-- Zone de texte -->
-            <div class="space-y-2">
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">النص المراد تحويله</label>
-                <textarea id="textInput" rows="4" 
-                    class="glass-input w-full rounded-2xl p-4 text-slate-100 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition resize-none placeholder-slate-600 text-sm leading-relaxed"
-                    placeholder="اكتب النص بالعربية هنا...">مرحباً بك! هذا اختبار حي لتوليد الصوت باللغة العربية بجودة عالية وبدون الحاجة لأي خادم خارجي.</textarea>
+            <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 text-right">النص المراد تحويله</label>
+                <textarea id="textInput" rows="3" 
+                    class="glass-input w-full rounded-2xl p-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition resize-none placeholder-slate-600 text-sm leading-relaxed"
+                    placeholder="اكتب النص بالعربية هنا...">مرحباً بك! هذه تجربة لصوت بشري طبيعي جداً وعالي الأداء باللغة العربية.</textarea>
             </div>
 
-            <!-- Sélection de la voix -->
-            <div class="space-y-2">
-                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400">اختر الصوت البشري</label>
+            <!-- Sélection de la voix neuronale -->
+            <div class="space-y-1.5">
+                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 text-right">اختر الصوت العصبي</label>
                 <select id="voiceSelect" 
                     class="glass-input w-full rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500/40 transition">
-                    <option value="Zeina">زينة (Zeina - أنثى / فصحى طبيعية)</option>
-                    <option value="Hala">هالة (Hala - أنثى / خليجي)</option>
-                    <option value="Zayd">زيد (Zayd - ذكر / فصحى)</option>
-                    <option value="Naayf">نايف (Naayf - ذكر / سعودي)</option>
+                    <option value="ar-EG-SalmaNeural">سلمى (مصر - أنثى طبيعية وواضحة)</option>
+                    <option value="ar-SA-ZariyahNeural">زاريَة (السعودية - أنثى فصحى)</option>
+                    <option value="ar-SA-HamedNeural">حامد (السعودية - ذكر رسمي)</option>
+                    <option value="ar-AE-FatimaNeural">فاطمة (الإمارات - أنثى هادئة)</option>
                 </select>
             </div>
 
-            <!-- Boutons d'action -->
+            <!-- Bouton d'action -->
             <button id="generateBtn"
-                class="w-full py-4 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-2xl shadow-lg shadow-purple-900/30 transition-all duration-300 transform active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 text-sm tracking-wide">
-                <span>توليد الصوت وتشغيله</span>
+                class="w-full py-3.5 bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white font-semibold rounded-2xl shadow-lg shadow-purple-900/30 transition-all duration-300 transform active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 text-sm tracking-wide">
+                <span>توليد صوت واقعي وتشغيله</span>
                 <span>🎙️</span>
             </button>
 
-            <!-- Indicateur de chargement -->
-            <div id="loadingIndicator" class="hidden text-center py-2 text-purple-400 text-xs animate-pulse font-medium">
-                جاري الاتصال والمعالجة عبر تقنية Blob... ⚡
-            </div>
-
             <!-- Lecteur & Téléchargement -->
-            <div id="resultContainer" class="hidden pt-4 border-t border-white/5 space-y-4">
-                <audio id="audioPlayer" controls class="w-full rounded-xl h-11 accent-purple-500"></audio>
-                <a id="downloadLink" download="arabic_audio.mp3" 
-                   class="block text-center py-3 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 rounded-xl text-xs font-medium transition text-purple-300 hover:text-white">
-                    تحميل الملف بصيغة MP3 📥
+            <div id="resultContainer" class="hidden pt-3 border-t border-white/5 space-y-3">
+                <audio id="audioPlayer" controls class="w-full rounded-xl h-10 accent-purple-500"></audio>
+                <a id="downloadLink" download="natural_arabic_audio.mp3" 
+                   class="block text-center py-2.5 bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 rounded-xl text-xs font-medium transition text-purple-300 hover:text-white">
+                    تحميل الملف الصوتي MP3 📥
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Console de Développement -->
+    <div class="w-full max-w-xl mt-4 console-box rounded-2xl p-4 text-xs shadow-2xl">
+        <div class="flex justify-between items-center mb-2 pb-2 border-b border-white/10 text-slate-400">
+            <span class="font-bold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Console Logs (Edge-TTS)
+            </span>
+            <button onclick="clearConsole()" class="hover:text-white text-[10px] bg-white/5 px-2 py-0.5 rounded transition">Clear</button>
+        </div>
+        <div id="debugLog" class="space-y-1 max-h-36 overflow-y-auto text-[11px]">
+            <div class="text-slate-500">[System] Connected to local Edge-TTS bridge. Ready...</div>
         </div>
     </div>
 
@@ -92,53 +104,72 @@
         const generateBtn = document.getElementById('generateBtn');
         const textInput = document.getElementById('textInput');
         const voiceSelect = document.getElementById('voiceSelect');
-        const loadingIndicator = document.getElementById('loadingIndicator');
         const resultContainer = document.getElementById('resultContainer');
         const audioPlayer = document.getElementById('audioPlayer');
         const downloadLink = document.getElementById('downloadLink');
+        const debugLog = document.getElementById('debugLog');
 
         let currentAudioUrl = null;
 
+        function log(message, type = 'info') {
+            const time = new Date().toLocaleTimeString();
+            let color = 'text-slate-300';
+            if (type === 'error') color = 'text-red-400';
+            if (type === 'success') color = 'text-emerald-400';
+            if (type === 'warn') color = 'text-amber-400';
+
+            debugLog.innerHTML += `<div class="${color}">[${time}] ${message}</div>`;
+            debugLog.scrollTop = debugLog.scrollHeight;
+        }
+
+        function clearConsole() {
+            debugLog.innerHTML = '';
+        }
+
         generateBtn.addEventListener('click', async () => {
             const text = textInput.value.trim();
+            const voice = voiceSelect.value;
+
             if (!text) {
+                log('Validation error: Text input is empty.', 'warn');
                 alert('الرجاء إدخال النص أولاً');
                 return;
             }
 
-            const voice = voiceSelect.value;
             generateBtn.disabled = true;
-            loadingIndicator.classList.remove('hidden');
             resultContainer.classList.add('hidden');
+            log(`Requesting neural voice "${voice}"...`);
 
             if (currentAudioUrl) {
                 URL.revokeObjectURL(currentAudioUrl);
             }
 
             try {
-                const apiUrl = `https://api.streamelements.com/kappa/v2/speech?voice=${voice}&text=${encodeURIComponent(text)}`;
+                const apiUrl = `http://127.0.0.1:8000/synthesize?text=${encodeURIComponent(text)}&voice=${encodeURIComponent(voice)}`;
                 
                 const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error('فشل في جلب الملف الصوتي من الخادم');
+                log(`Response status: ${response.status}`, response.ok ? 'success' : 'error');
+
+                if (!response.ok) throw new Error('فشل الاتصال بخدمة توليد الصوت المحلية');
 
                 const blob = await response.blob();
-                currentAudioUrl = URL.createObjectURL(blob);
+                log(`Neural audio blob received. Size: ${blob.size} bytes`, 'success');
 
+                currentAudioUrl = URL.createObjectURL(blob);
                 audioPlayer.src = currentAudioUrl;
                 downloadLink.href = currentAudioUrl;
                 
                 resultContainer.classList.remove('hidden');
                 audioPlayer.play();
+                log('Neural audio playback started successfully.', 'success');
+
             } catch (error) {
-                console.error(error);
-                alert('حدث خطأ أثناء توليد الصوت. تأكد من اتصالك بالإنترنت.');
+                log(`Error: ${error.message}. Make sure Python server is running!`, 'error');
+                alert('تعذر الاتصال بالخادم المحلي. تأكد من تشغيل ملف python server.py');
             } finally {
                 generateBtn.disabled = false;
-                loadingIndicator.classList.add('hidden');
             }
         });
     </script>
-
-<script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));}</script>
 </body>
 </html>
